@@ -1,5 +1,6 @@
 import 'package:sicovid/pages/home_page.dart';
 import 'package:sicovid/pages/login_page.dart';
+import 'package:sicovid/pages/register_page.dart';
 import 'package:sicovid/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -7,5 +8,6 @@ import 'package:flutter/material.dart';
 final routes = {
   '/SplashPage': (BuildContext context) => SplashPage(),
   '/LoginPage': (BuildContext context) => LoginPage(),
-  '/HomePage': (BuildContext context) => HomePage()
+  '/HomePage': (BuildContext context) => HomePage(),
+  '/RegisterPage': (BuildContext context) => RegisterPage()
 };
