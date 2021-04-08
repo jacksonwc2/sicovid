@@ -21,6 +21,7 @@ class _RegisterPageState extends State<RegisterPage> {
   String _password;
   PickedFile _photo;
   final frmRegister = new GlobalKey<FormState>();
+  bool emailCadastrado = false;
 
   void _register() async {
     final form = frmRegister.currentState;
@@ -139,8 +140,12 @@ class _RegisterPageState extends State<RegisterPage> {
                               height: 15,
                             ),
                             TextFormField(
+                              onChanged: (text) async {
+                                User user = await db.emailCadastrado(text);
+                                setState(() => emailCadastrado = user != null);
+                              },
                               validator: (value) {
-                                return db.emailCadastrado(value) != null
+                                return emailCadastrado
                                     ? "Email já cadastrado"
                                     : null;
                               },
