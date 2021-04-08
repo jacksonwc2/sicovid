@@ -28,8 +28,6 @@ class DatabaseHelper {
   void _onCreate(Database db, int version) async {
     await db.execute(
         "CREATE TABLE user(id INTEGER PRIMARY KEY autoincrement, name TEXT, email TEXT, phone TEXT, password TEXT, photo TEXT)");
-    await db.execute(
-        "INSERT INTO user(name, email, phone, password) VALUES('Jack', 'jack@jack.com', '55565555', '123')");
   }
 
   // método singleton em si
@@ -67,6 +65,18 @@ class DatabaseHelper {
     List<Map> list = await dbClient.rawQuery(
         "SELECT * FROM user WHERE email = ? AND password = ?",
         [email, password]);
+    if (list != null && list.length > 0) {
+      user = User(list[0]["id"], list[0]["name"], list[0]["email"],
+          list[0]["phone"], list[0]["password"], list[0]["photo"]);
+    }
+    return user;
+  }
+
+  Future<User> emailCadastrado(String email) async {
+    var dbClient = await db;
+    User user;
+    List<Map> list =
+        await dbClient.rawQuery("SELECT * FROM user WHERE email = ?", [email]);
     if (list != null && list.length > 0) {
       user = User(list[0]["id"], list[0]["name"], list[0]["email"],
           list[0]["phone"], list[0]["password"], list[0]["photo"]);

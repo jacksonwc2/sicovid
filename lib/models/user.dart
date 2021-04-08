@@ -18,6 +18,8 @@ class User {
   String get password => _password;
   String get photo => _photo;
 
+  set id(int id) => _id = id;
+
   //toMap
   Map<String, dynamic> toMap() {
     return {

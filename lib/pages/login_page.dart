@@ -17,19 +17,22 @@ class _LoginPageState extends State<LoginPage> {
 
   void _validateLogin() async {
     final form = frmLogin.currentState;
-    form.save();
-    User u = await db.validateLogin(_email, _password);
-    if (u != null) {
-      Navigator.popAndPushNamed(context, '/HomePage');
-    } else {
-      showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: Text('Erro no Login'),
-              content: Text('E-mail e/ou senha inválidos!'),
-            );
-          });
+
+    if (form.validate()) {
+      form.save();
+      User u = await db.validateLogin(_email, _password);
+      if (u != null) {
+        Navigator.popAndPushNamed(context, '/HomePage');
+      } else {
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: Text('Erro no Login'),
+                content: Text('E-mail e/ou senha inválidos!'),
+              );
+            });
+      }
     }
   }
 
@@ -37,6 +40,9 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     // o campo de email
     final emailField = TextFormField(
+      validator: (value) {
+        return value.length < 10 ? "Email deve ter 10 caracteres" : null;
+      },
       onSaved: (value) =>
           _email = value, // utilizo o oonsaved para capturar o valor
       decoration: InputDecoration(
@@ -48,6 +54,9 @@ class _LoginPageState extends State<LoginPage> {
     );
     // o campo de senha
     final passwordField = TextFormField(
+      validator: (value) {
+        return value.length < 6 ? "Senha deve ter 6 caracteres" : null;
+      },
       onSaved: (value) =>
           _password = value, // utilizo o oonsaved para capturar o valor
       obscureText: true,
