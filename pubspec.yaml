@@ -62,7 +62,7 @@ flutter:
   assets:
     - assets/images/
     - assets/i18n/
-    - internationalization.yml
+    - internationalization.yaml
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

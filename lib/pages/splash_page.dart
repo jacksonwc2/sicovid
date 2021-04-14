@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:internationalization/internationalization.dart';
 
 class SplashPage extends StatefulWidget {
   SplashPage({Key key}) : super(key: key);
@@ -43,7 +44,7 @@ class _SplashPageState extends State<SplashPage>
               turns: _turnsTween.animate(_controller),
               child: Image.asset('assets/images/splash.png')),
           Text(
-            'CARREGANDO ...',
+            Strings.of(context).valueOf("msg_splash"),
             style: TextStyle(fontSize: 30),
           ),
           // utilizaremos o Navigator para navegar para outro Widget
