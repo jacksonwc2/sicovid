@@ -1,5 +1,5 @@
 {
-    "msg_splash": "LOADING...",
-    "msg_senha": "Password must contain 6 characters!",
+    "msg_splash": "LOADING ...",
+    "msg_password": "Password must be at least 6 characters",
     "wg_login": "Login"
 }

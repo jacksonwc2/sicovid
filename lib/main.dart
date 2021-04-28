@@ -8,7 +8,7 @@ import 'package:internationalization/internationalization.dart';
 void main() async {
   // é para garantir que os componentes nativos tenham sido inicializados
   WidgetsFlutterBinding.ensureInitialized();
-  // carrega as configurações de internacionalização
+  // carrega as configuração de internacionalização
   await Internationalization.loadConfigurations();
   // define a direção aceita para a tela
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);

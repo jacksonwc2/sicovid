@@ -47,11 +47,6 @@ class _SplashPageState extends State<SplashPage>
             Strings.of(context).valueOf("msg_splash"),
             style: TextStyle(fontSize: 30),
           ),
-          // utilizaremos o Navigator para navegar para outro Widget
-          RaisedButton(
-              child: Text('Login'),
-              onPressed: () =>
-                  Navigator.pushReplacementNamed(context, '/LoginPage'))
         ],
       ),
     );

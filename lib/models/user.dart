@@ -6,11 +6,12 @@ class User {
   String _password;
   String _photo;
 
-  //constructor
   User(this._id, this._name, this._email, this._phone, this._password,
       this._photo);
 
-  //getters and setters
+  set id(int id) => _id = id;
+
+  // métodos getters
   int get id => _id;
   String get name => _name;
   String get email => _email;
@@ -18,17 +19,14 @@ class User {
   String get password => _password;
   String get photo => _photo;
 
-  set id(int id) => _id = id;
-
-  //toMap
+  // para facilitar o insert/update utilizamos o método toMap
   Map<String, dynamic> toMap() {
     return {
-      "id": _id,
-      "name": _name,
-      "email": _email,
-      "phone": _phone,
-      "password": _password,
-      "photo": _photo
+      'name': _name,
+      'email': _email,
+      'phone': _phone,
+      'password': _password,
+      'photo': _photo
     };
   }
 }
