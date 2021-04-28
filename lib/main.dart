@@ -6,7 +6,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:internationalization/internationalization.dart';
 
 void main() async {
-  // é para garantir que os componentes nativos tenham sido inicializados
   WidgetsFlutterBinding.ensureInitialized();
   // carrega as configuração de internacionalização
   await Internationalization.loadConfigurations();
